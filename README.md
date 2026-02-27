@@ -1,38 +1,66 @@
-# Telugu Whisper Training and Testing
-This repository documents the fine-tuning of OpenAI's **Whisper-Small** and evaluating its performance against a custom-curated corpus of noise-augmented speech.
+# Telugu Whisper Training and Noise Testing
+
+This repository presents the fine-tuning of OpenAI’s **Whisper-Small** model for Telugu Automatic Speech Recognition (ASR), followed by a structured robustness evaluation on a large corpus of noise-augmented speech.
+
+The objective is to improve phonetic transcription accuracy for Telugu and assess model stability under real-world acoustic noise conditions.
+
+---
 
 ## Technical Methodology
 
 ### Hardware and Environment
 
-* **Platform:** RunPod.
-* **GPU:** NVIDIA A40 (48 GB VRAM).
-* **Framework:** PyTorch + Hugging Face Transformers.
+* **Platform:** RunPod
+* **GPU:** NVIDIA A40 (48 GB VRAM)
+* **Runtime:** CUDA-enabled Linux environment
+* **Framework:** PyTorch + Hugging Face Transformers
+* **Precision:** FP16 Mixed Precision Training
+
+---
+
+## Model Fine-Tuning
+
+The base model (`openai/whisper-small`) was fine-tuned to optimize transcription accuracy for Telugu speech.
 
 ### Training Configuration
 
-The model was fine-tuned to optimize for phonetic accuracy in Telugu:
+* **Optimizer:** RMSProp
+* **Learning Rate:** 1e-5
+* **Batch Size:** 16
+* **Epochs:** 20
+* **Gradient Checkpointing:** Enabled
+* **Evaluation Metrics:** WER, CER
 
-* **Optimizer:** RMSProp.
-* **Learning Rate**: $1e-5$.
-* **Batch Size**: 16.
-* **Epochs**: 20.
+---
 
 ## Noise-Resilience Evaluation
 
-To test real-world robustness, the model was benchmarked against the **Telugu-Noisy-Data** corpus, which consists of speech from Mozilla Common Voice, IndicTTS, and OpenSLR augmented with **ESC-50** environmental noise (rain, wind, urban sounds).
+To measure real-world robustness, the fine-tuned model was evaluated against the **Telugu-Noisy-Data** corpus which consists of speech samples from:
 
-### Results on testing against noisy data
+* Mozilla Common Voice (Telugu)
+* IndicTTS
+* OpenSLR
 
-| Metric | Global Result |
-| --- | --- |
-| **Total Files Processed** | 7,368 |
-| **Global Corpus WER** | **13.97%** |
-| **Global Corpus CER** | **3.54%** |
+All samples were augmented with environmental sounds from the **ESC-50** dataset
 
-### Sample Transcriptions 
-| Dataset | Reference | Prediction |
-| --- | --- | --- |
-| **Mozilla** | వివిధ సంఘాలు మద్దతు ప్రకటించాయి | వివిధ సంఘాలు మద్దతు ప్రకటించాయి |
+---
+
+## Global Evaluation Results (Noisy Corpus)
+
+| Metric                    | Result     |
+| ------------------------- | ---------- |
+| **Total Files Processed** | 7,368      |
+| **Global Corpus WER**     | **13.97%** |
+| **Global Corpus CER**     | **3.54%**  |
+
+---
+
+## Sample Transcriptions
+
+| Dataset      | Reference                                                            | Prediction                                                           |
+| ------------ | -------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| **Mozilla**  | వివిధ సంఘాలు మద్దతు ప్రకటించాయి                                      | వివిధ సంఘాలు మద్దతు ప్రకటించాయి                                      |
 | **IndicTTS** | రాజు అలా అనేసరికి సునందుడు చేసేది లేక తలవంచుకొని ఇంటికి వెళ్లిపోయాడు | రాజు అలా అనేసరికి సునందుడు చేసేది లేక తలవంచుకొని ఇంటికి వెళ్లిపోయాడు |
-| **OpenSLR** | మధ్యధరా ప్రాంతంచే చుట్టి వున్నది | మధ్యధరా ప్రాంతంచే చుట్టి వున్నది |
+| **OpenSLR**  | మధ్యధరా ప్రాంతంచే చుట్టి వున్నది                                     | మధ్యధరా ప్రాంతంచే చుట్టి వున్నది                                     |
+
+---
