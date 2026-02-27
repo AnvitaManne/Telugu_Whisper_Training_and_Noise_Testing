@@ -35,9 +35,7 @@ The base model (`openai/whisper-small`) was fine-tuned to optimize transcription
 
 To test real-world robustness, the model was benchmarked against the Telugu-Noisy-Data corpus, which consists of speech from Mozilla Common Voice, IndicTTS, and OpenSLR augmented with ESC-50 environmental noise (rain, wind, urban sounds).
 
----
-
-## Global Evaluation Results (Noisy Corpus)
+### Evaluation Results (Noisy Corpus)
 
 | Metric                    | Result     |
 | ------------------------- | ---------- |
@@ -45,9 +43,7 @@ To test real-world robustness, the model was benchmarked against the Telugu-Nois
 | **Global Corpus WER**     | **13.97%** |
 | **Global Corpus CER**     | **3.54%**  |
 
----
-
-## Sample Transcriptions
+### Sample Transcriptions
 
 | Dataset      | Reference                                                            | Prediction                                                           |
 | ------------ | -------------------------------------------------------------------- | -------------------------------------------------------------------- |
