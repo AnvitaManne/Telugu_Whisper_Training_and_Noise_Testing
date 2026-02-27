@@ -4,9 +4,7 @@ This repository includes the fine-tuning of OpenAI’s **Whisper-Small** model f
 
 ---
 
-## Technical Methodology
-
-### Hardware and Environment
+## Hardware and Environment
 
 * **Platform:** RunPod
 * **GPU:** NVIDIA A40 (48 GB VRAM)
