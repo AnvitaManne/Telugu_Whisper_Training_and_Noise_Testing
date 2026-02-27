@@ -1,9 +1,6 @@
 # Telugu Whisper Training and Noise Testing
 
-This repository presents the fine-tuning of OpenAI’s **Whisper-Small** model for Telugu Automatic Speech Recognition (ASR), followed by a structured robustness evaluation on a large corpus of noise-augmented speech.
-
-The objective is to improve phonetic transcription accuracy for Telugu and assess model stability under real-world acoustic noise conditions.
-
+This repository documents the fine-tuning of OpenAI’s **Whisper-Small** model for Telugu Automatic Speech Recognition (ASR), followed by a structured evaluation on a large corpus of noise-augmented speech. Training and experimentation were conducted using NVIDIA A40 GPUs on RunPod. 
 ---
 
 ## Technical Methodology
@@ -35,7 +32,7 @@ The base model (`openai/whisper-small`) was fine-tuned to optimize transcription
 
 ## Noise-Resilience Evaluation
 
-To measure real-world robustness, the fine-tuned model was evaluated against the **Telugu-Noisy-Data** corpus which consists of speech samples from:
+To assess real-world robustness, the fine-tuned model was evaluated against the **Telugu-Noisy-Data** corpus which consists of speech samples from:
 
 * Mozilla Common Voice (Telugu)
 * IndicTTS
