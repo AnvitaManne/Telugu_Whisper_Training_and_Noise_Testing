@@ -1,6 +1,7 @@
 # Telugu Whisper Training and Noise Testing
 
-This repository documents the fine-tuning of OpenAI’s **Whisper-Small** model for Telugu Automatic Speech Recognition (ASR), followed by a structured evaluation on a large corpus of noise-augmented speech. Training and experimentation were conducted using NVIDIA A40 GPUs on RunPod. 
+This repository includes the fine-tuning of OpenAI’s **Whisper-Small** model for Telugu Automatic Speech Recognition (ASR), followed by a structured evaluation on a large corpus of noise-augmented speech. Training and experimentation were conducted using NVIDIA A40 GPUs on RunPod. 
+
 ---
 
 ## Technical Methodology
@@ -12,6 +13,7 @@ This repository documents the fine-tuning of OpenAI’s **Whisper-Small** model 
 * **Runtime:** CUDA-enabled Linux environment
 * **Framework:** PyTorch + Hugging Face Transformers
 * **Precision:** FP16 Mixed Precision Training
+All required dependencies are listed in `requirements.txt`.
 
 ---
 
@@ -25,20 +27,13 @@ The base model (`openai/whisper-small`) was fine-tuned to optimize transcription
 * **Learning Rate:** 1e-5
 * **Batch Size:** 16
 * **Epochs:** 20
-* **Gradient Checkpointing:** Enabled
 * **Evaluation Metrics:** WER, CER
 
 ---
 
 ## Noise-Resilience Evaluation
 
-To assess real-world robustness, the fine-tuned model was evaluated against the **Telugu-Noisy-Data** corpus which consists of speech samples from:
-
-* Mozilla Common Voice (Telugu)
-* IndicTTS
-* OpenSLR
-
-All samples were augmented with environmental sounds from the **ESC-50** dataset
+To test real-world robustness, the model was benchmarked against the Telugu-Noisy-Data corpus, which consists of speech from Mozilla Common Voice, IndicTTS, and OpenSLR augmented with ESC-50 environmental noise (rain, wind, urban sounds).
 
 ---
 
