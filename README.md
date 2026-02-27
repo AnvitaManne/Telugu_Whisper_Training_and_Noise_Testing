@@ -22,7 +22,7 @@ The model was fine-tuned to optimize for phonetic accuracy in Telugu:
 
 To test real-world robustness, the model was benchmarked against the **Telugu-Noisy-Data** corpus, which consists of speech from Mozilla Common Voice, IndicTTS, and OpenSLR augmented with **ESC-50** environmental noise (rain, wind, urban sounds).
 
-### Combined Benchmark Results 
+### Results on testing against noisy data
 
 | Metric | Global Result |
 | --- | --- |
@@ -30,8 +30,7 @@ To test real-world robustness, the model was benchmarked against the **Telugu-No
 | **Global Corpus WER** | **13.97%** |
 | **Global Corpus CER** | **3.54%** |
 
-### Sample Transcriptions (Noisy Test Set)
-
+### Sample Transcriptions 
 | Dataset | Reference | Prediction |
 | --- | --- | --- |
 | **Mozilla** | వివిధ సంఘాలు మద్దతు ప్రకటించాయి | వివిధ సంఘాలు మద్దతు ప్రకటించాయి |
