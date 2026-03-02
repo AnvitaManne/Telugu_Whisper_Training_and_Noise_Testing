@@ -29,7 +29,7 @@ The base model (`openai/whisper-small`) was fine-tuned to optimize transcription
 
 ---
 
-## Noise-Resilience Evaluation
+## Evaluation against Noise
 
 To test real-world robustness, the model was benchmarked against the Telugu-Noisy-Data corpus, which consists of speech from Mozilla Common Voice, IndicTTS, and OpenSLR augmented with ESC-50 environmental noise (rain, wind, urban sounds).
 
